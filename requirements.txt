@@ -59,7 +59,7 @@ tbb==2020.3.254
 threadpoolctl==2.1.0
 tiledb==0.7.0
 toml==0.10.1
-urllib3==1.25.11
+urllib3==1.26.5
 vc==2018.7.10
 webassets==2.0
 werkzeug==1.0.1
