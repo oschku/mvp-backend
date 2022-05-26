@@ -134,7 +134,7 @@ def run(
             db.session.add(ui_result)
             db.session.commit()
     
-
+            print('Value error: ', V)
             if V.args[1] == 'street':
                 print('Osoite on virheellinen','street_err')
                 print(V.args[1])

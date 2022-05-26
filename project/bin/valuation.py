@@ -125,6 +125,7 @@ class ui_input():
         kunta = user_data.get('kunta')
         location_string = osoite + ', ' + kunta 
         lat, lng = geodata.geocode(location_string, kunta)
+        print('lat, lng: ', lat, lng)
         
         shore_dist = geodata.distance_to_shoreline(location_string, lat, lng)
         hubdist, hub_type = geodata.hub_distances_hsl(lat, lng)
@@ -349,6 +350,7 @@ class geodata():
         
         r = requests.get(url = URL, params = PARAMS)
         data = r.json()
+
         
         for i in range(len(data['items'])):
             if kunta == data['items'][i]['address']['city']:
@@ -628,7 +630,7 @@ class geodata():
         '''
         print('fetching latest cpi')
         
-        URL = 'https://pxnet2.stat.fi:443/PXWeb/api/v1/fi/StatFin/hin/khi/kk/statfin_khi_pxt_11xl.px'
+        URL = 'https://statfin.stat.fi:443/PxWeb/api/v1/fi/StatFin/khi/statfin_khi_pxt_11xl.px'
         
         
         if optional_arg == 'date_time':
@@ -653,15 +655,17 @@ class geodata():
             }
           ],
           "response": {
-            "format": "json-stat"
+            "format": "json-stat2"
           }
         }'''
         
+        
+
         r = requests.post(URL, data=params)
         r = r.json()
 
         try:
-            cpi_value = r['dataset']['value'][0]
+            cpi_value = r['value'][0]
             return cpi_value
         
         

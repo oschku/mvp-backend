@@ -50,6 +50,8 @@ WORKDIR /app
 
 RUN pip install -r requirements.txt
 RUN pip3 install sqlalchemy-datatables==2.0.1
+RUN pip3 install setuptools==57.5.0
+RUN pip3 install pygdal==2.4.2.6 
 
 COPY . /app
 
