@@ -1,1 +1,1 @@
-# prodokflask
+# MVP product ML backend for API
